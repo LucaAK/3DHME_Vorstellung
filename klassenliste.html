@@ -1,4 +1,98 @@
 <!DOCTYPE html>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const listItems = document.querySelectorAll("li");
+        listItems.forEach(item => {
+            item.addEventListener("click", () => {
+                document.body.style.animation = "spin 2s ease-in-out";
+                setTimeout(() => {
+                    document.body.style.animation = ""; // Reset animation
+                }, 2000);
+            });
+        });
+    });
+</script>
+<style>
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const listItems = document.querySelectorAll("li");
+        listItems.forEach(item => {
+            item.addEventListener("click", () => {
+                item.style.animation = "spin 2s ease-in-out";
+                createConfetti();
+                setTimeout(() => {
+                    item.style.animation = ""; // Reset animation
+                }, 2000);
+            });
+        });
+
+        function createConfetti() {
+            const confettiContainer = document.createElement("div");
+            confettiContainer.style.position = "fixed";
+            confettiContainer.style.top = "0";
+            confettiContainer.style.left = "0";
+            confettiContainer.style.width = "100%";
+            confettiContainer.style.height = "100%";
+            confettiContainer.style.pointerEvents = "none";
+            document.body.appendChild(confettiContainer);
+
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement("div");
+                confetti.style.position = "absolute";
+                confetti.style.width = "10px";
+                confetti.style.height = "10px";
+                confetti.style.backgroundColor = getRandomColor();
+                confetti.style.top = Math.random() * 100 + "%";
+                confetti.style.left = Math.random() * 100 + "%";
+                confetti.style.animation = `fall ${Math.random() * 3 + 2}s ease-in-out`;
+                confettiContainer.appendChild(confetti);
+
+                confetti.addEventListener("animationend", () => {
+                    confetti.remove();
+                });
+            }
+
+            setTimeout(() => {
+                confettiContainer.remove();
+            }, 3000);
+        }
+
+        function getRandomColor() {
+            const colors = ["#ff0000", "#00ff00", "#0000ff", "#ffff00", "#ff00ff", "#00ffff"];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+    });
+</script>
+<style>
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(3600deg);
+        }
+    }
+
+    @keyframes fall {
+        0% {
+            transform: translateY(-100%);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(100vh);
+            opacity: 0;
+        }
+    }
+</style>
 <html lang="de">
 <script>
     document.addEventListener("DOMContentLoaded", () => {
