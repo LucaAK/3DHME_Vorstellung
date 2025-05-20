@@ -1,2 +1,2 @@
 
-print("Florian Langmaier ist ein Schwarz..")
+print("Florian Langmaier")
