@@ -7,5 +7,10 @@ class Person:
           print(f"Hi, ich heiße {self.name}")
 
 #Eigene Klassen
-
+class lucamaier(Person):
+    def say_hi(self):
+        print(f"Hi ich heiße LucaMaier")
 #Hauptprogramm
+
+lucamaier = lucamaier("LucaMaier")
+lucamaier.say_hi()
