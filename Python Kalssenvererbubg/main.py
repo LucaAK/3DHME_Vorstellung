@@ -8,4 +8,11 @@ class Person:
 
 #Eigene Klassen
 
+class lusserjohannes(Person):
+    def say_hi(self):
+        print(f"Hi, ich heiße Johannes!")
+
+
 #Hauptprogramm
+lusserjohannes = lusserjohannes("Johannes")
+lusserjohannes.say_hi()
